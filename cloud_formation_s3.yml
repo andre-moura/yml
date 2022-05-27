@@ -71,6 +71,39 @@ Parameters:
     NoEcho: true
     Description: A senha de acesso ao jupyter
 Resources:
+  BucketBrutos: 
+    Type: "AWS::S3::Bucket"
+    Description: "Creating Amazon S3 bucket from CloudFormation"
+    Properties: 
+      AccessControl: Private
+      BucketName: !Sub ${AWS::StackName}-${Client}-bucket-bruto
+      PublicAccessBlockConfiguration: 
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+  BucketTratados: 
+    Type: "AWS::S3::Bucket"
+    Description: "Creating Amazon S3 bucket from CloudFormation"
+    Properties: 
+      AccessControl: Private
+      BucketName: !Sub ${AWS::StackName}-${Client}-bucket-tratados
+      PublicAccessBlockConfiguration: 
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+  BucketCliente: 
+    Type: "AWS::S3::Bucket"
+    Description: "Creating Amazon S3 bucket from CloudFormation"
+    Properties: 
+      AccessControl: Private
+      BucketName: !Sub ${AWS::StackName}-${Client}-bucket-cliente
+      PublicAccessBlockConfiguration: 
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
   Vpc:
     Type: AWS::EC2::VPC
     Properties:
